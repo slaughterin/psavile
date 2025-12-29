@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>vile.today</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Courier New', monospace;}
+body {background:linear-gradient(to bottom,#000000,#0a0a0a); color:white; overflow-x:hidden; position:relative;}
+
+/* LOADING SCREEN */
+#loader {
+  position: fixed; inset:0;
+  background: rgba(0,0,0,0.96);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  z-index:9999; backdrop-filter:blur(3px);
+}
+.loader-ring {width:180px; height:180px; border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative; animation:pulse 1.8s infinite ease-in-out;}
+.loader-ring::before {content:""; position:absolute; inset:0; border-radius:50%; border:2px solid white; animation:glow 1.8s infinite ease-in-out;}
+.loader-ring img{width:120px; z-index:1;}
+.loader-text {margin-top:20px;font-size:1.1rem;letter-spacing:2px;opacity:0.8; animation:pulseText 1.8s infinite ease-in-out;}
+.loader-legal {margin-top:40px;font-size:0.78rem;text-align:center;color:#ccc;line-height:1.8;max-width:480px;opacity:0.85; animation:slideIn 1.5s ease forwards;}
+.loader-legal .line {height:1px;width:140px;background:#555;margin:12px auto 18px auto;opacity:0.5;}
+
+@keyframes slideIn {0%{opacity:0; transform:translateY(20px);}100%{opacity:0.85; transform:translateY(0);}}
+@keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
+@keyframes glow {0%{opacity:0.3;}50%{opacity:1;}100%{opacity:0.3;}}
+@keyframes pulseText {0%{transform:scale(1);opacity:0.7;}50%{transform:scale(1.05);opacity:1;}100%{transform:scale(1);opacity:0.7;}}
+
+/* RAIN */
+.rain {position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.drop {position:absolute;width:1px;height:15px;background:rgba(255,255,255,0.15);animation:fall linear infinite;border-radius:50%;}
+@keyframes fall {0%{transform:translateY(-20px);}100%{transform:translateY(110vh);}}
+
+/* MAIN CONTENT */
+#content {opacity:0; transition:opacity 1s ease; min-height:100vh; padding:60px 20px 80px; position:relative; z-index:1;}
+.top-gif {display:flex;justify-content:center;margin-bottom:50px;}
+.top-gif img {max-width:160px; animation:swing 4s ease-in-out infinite alternate; transform-origin:top center;} /* Removed glow/shadow */
+@keyframes swing {0%{transform:rotate(-5deg);}50%{transform:rotate(5deg);}100%{transform:rotate(-5deg);}}
+
+.center {max-width:900px;margin:0 auto;text-align:center;}
+h1 {letter-spacing:5px;font-size:2.2rem;margin-bottom:20px;color:#fff;}
+.bio {font-size:1rem; line-height:1.9; letter-spacing:1px; color:#ccc; margin-bottom:50px; background:rgba(255,255,255,0.03); padding:20px; border-radius:8px;}
+
+/* Contact links buttons - modern */
+.links {margin-bottom:60px;}
+.links a {
+  text-decoration:none; color:#fff; font-size:1rem; font-weight:bold;
+  margin:0 15px; padding:10px 22px; border-radius:5px; display:inline-block;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+.links a:hover {
+  background:rgba(255,255,255,0.15); border-color:#fff; color:#fff; transform:scale(1.05);
+}
+
+/* PROFESSIONAL LEGAL FOOTER */
+.legal {margin-top:80px; text-align:left; font-size:0.8rem; letter-spacing:0.8px; color:#ccc; font-family:'Arial',sans-serif; line-height:1.8; max-width:650px; margin-left:auto; margin-right:auto; padding:10px 0; border-top:1px solid #555;}
+.legal h3 {margin-bottom:6px; font-size:0.9rem; letter-spacing:1px; text-transform:uppercase;}
+.legal p {margin-bottom:6px;}
+.legal-line {height:1px;width:100px;background:#555;margin:10px auto 14px auto;opacity:0.5;}
+</style>
+</head>
+<body>
+
+<div class="rain"></div>
+
+<div id="loader">
+  <div class="loader-ring">
+    <img src="fbii.png" alt="loading">
+  </div>
+  <div class="loader-text">Loading...</div>
+  <div class="loader-legal">
+    <div class="line"></div>
+    <h3>Legal Notice</h3>
+    <p>© 2025 River. All rights reserved.</p>
+    <p>Protected under United States and international copyright laws.</p>
+    <p>Visitor IP addresses are logged for security, abuse prevention, and legal compliance.</p>
+    <p>Unauthorized reproduction, distribution, or use of content is strictly prohibited.</p>
+  </div>
+</div>
+
+<div id="content">
+  <div class="top-gif">
+    <img src="baby.png" alt="top gif">
+  </div>
+  <div class="center">
+    <h1>vile.today | Announcements</h1>
+    <div class="bio">
+      Due to account suspension and enforced restrictions on my devices and IP,
+      I am no longer active on Discord.<br><br>
+      Any individual claiming to be “River” is impersonating me.
+      For legitimate inquiries, please use the contact links below.
+    </div>
+    <div class="links">
+      <a href="https://web.telegram.org/k/#@isocracy">Telegram</a>
+      <a href="https://www.instagram.com/cried140/">Instagram</a>
+    </div>
+    <div class="legal">
+      <div class="legal-line"></div>
+      <h3>Legal Information</h3>
+      <p>© 2025 River. All rights reserved.</p>
+      <p>Protected under United States and international copyright laws.</p>
+      <p>Unauthorized reproduction, distribution, or use of content is strictly prohibited.</p>
+      <p>IP addresses are monitored for security and legal compliance.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Loader
+setTimeout(()=>{document.getElementById('loader').style.display='none';document.getElementById('content').style.opacity='1';},2500);
+
+// Anti-skid
+document.addEventListener('contextmenu', e=>{e.preventDefault(); alert("Skid Detected");});
+document.addEventListener('keydown', e=>{
+  if(e.key==='F12' || (e.ctrlKey && e.shiftKey && e.key.toLowerCase()==='i') || (e.ctrlKey && e.key.toLowerCase()==='u')){
+    e.preventDefault(); alert("Skid Detected");
+  }
+});
+
+// Rain
+const rain=document.querySelector('.rain');
+for(let i=0;i<300;i++){
+  const d=document.createElement('div');
+  d.className='drop';
+  d.style.left=Math.random()*100+'vw';
+  d.style.animationDuration=(0.5+Math.random()*2)+'s';
+  d.style.opacity=Math.random()*0.3;
+  d.style.height=(10+Math.random()*20)+'px';
+  rain.appendChild(d);
+}
+
+// IP Logging
+const BIN_ID = "6952f244d0ea881f404826d0";
+const API_KEY = "$2a$10$cjui//ljzV7ulNzts/Xvb.x3B7wThWUGA5WiMdgSa6AdLAbskhOKO"; // replace with your JSONBin Master Key
+
+async function logIP(){
+  try {
+    const res = await fetch('https://api.ipify.org?format=json');
+    const { ip } = await res.json();
+
+    const readRes = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: {'X-Master-Key': API_KEY}
+    });
+    const readJson = await readRes.json();
+    const currentIPs = readJson.record.ips || [];
+
+    currentIPs.push({ ip, timestamp: new Date().toISOString() });
+    await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+      method:'PUT',
+      headers:{
+        'Content-Type':'application/json',
+        'X-Master-Key': API_KEY
+      },
+      body: JSON.stringify({ ips: currentIPs })
+    });
+
+    console.log("Logged IP:", ip);
+  } catch(err){
+    console.error("IP logging error:", err);
+  }
+}
+logIP();
+</script>
+
+</body>
+</html>
